@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Wash Car</string>
+    <string-array name="city">
+        <item>Москва</item>
+        <item>Санкт-Петербург</item>
+        <item>Нижний Новгород</item>
+    </string-array>
+
+    <string name="find_carwash">Найти мойку</string>
+    <string name="more_weather">Подробнее о погоде</string>
+</resources>
