@@ -1,74 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#4CAF50"
-    android:weightSum="10"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:baselineAligned="false">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="vertical"
+    android:background="@color/primary"
+    android:weightSum="10">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:layout_weight="1.5"
+        android:fontFamily="sans-serif-thin"
         android:gravity="center"
         android:paddingLeft="32dp"
-        android:fontFamily="sans-serif-thin"
-        android:textColor="#ffffff"
         android:paddingRight="32dp"
-        android:textSize="28sp"
-        android:text="Добро пожаловать"/>
+        android:textColor="@color/icons"
+        android:text="@string/welcome_app"
+        android:textSize="28sp" />
 
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:layout_weight="7.3"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
 
-        <android.support.v7.widget.AppCompatImageView
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/vector_drawable_city"
-            android:id="@+id/imageView"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/vector_drawable_city"
+            tools:ignore="MissingPrefix" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:textColor="#ffffff"
             android:paddingLeft="64dp"
             android:paddingRight="64dp"
-            android:textSize="20sp"
-            android:text="Выберите свой город"/>
+            android:textColor="@color/icons"
+            android:text="@string/chose_city"
+            android:textSize="16sp" />
 
         <Spinner
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/spnrCountry"
+            android:paddingLeft="15dp"
+            android:layout_width="255dp"
+            android:dropDownWidth="250dp"
+            android:backgroundTint="@color/icons"
+            android:paddingBottom="10dp"
+            android:layout_height="wrap_content" />
+
+        <Spinner
             android:id="@+id/spnrCity"
-            style="@style/SpinnerItem"
-            />
+            android:paddingLeft="15dp"
+            android:layout_width="255dp"
+            android:dropDownWidth="250dp"
+            android:backgroundTint="@color/icons"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1.5"
-        android:layout_height="0dp">
+        android:orientation="vertical">
 
         <Button
+            android:id="@+id/btnNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="ПРОДОЛЖИТЬ"
-            android:id="@+id/btnNext"
             android:layout_gravity="center"
-            />
+            android:padding="20dp"
+            android:text="@string/next_screen" />
     </LinearLayout>
 </LinearLayout>
