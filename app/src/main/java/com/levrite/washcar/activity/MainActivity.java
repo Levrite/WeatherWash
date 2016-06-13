@@ -47,8 +47,8 @@ import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStates;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.levrite.washcar.R;
-import com.levrite.washcar.com.levrite.washcar.storage.InternalStorage;
 import com.levrite.washcar.data.WeatherData;
+import com.levrite.washcar.storage.InternalStorage;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -81,19 +81,14 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     ProgressBar mProgressBar;
     ImageView mImageWeather;
     TextView mTextWeather;
-    TextView mTextLong;
-    TextView mTextLat;
-    TextView mTextStat;
+
     Button mButtonFindWeather;
     Button mButtonUpdateData;
 
     SharedPreferences getPref;
 
     private ArrayList<WeatherData> mWeatherDatas;
-    GetWeather getWeatherTask = new GetWeather();
-
-    int count = 0;
-
+    GetWeather getWeatherTask;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,14 +97,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         mImageWeather = (ImageView) findViewById(R.id.imageWeather);
         mTextWeather = (TextView) findViewById(R.id.textWeather);
-        mTextLong = (TextView) findViewById(R.id.tvLong);
-        mTextLat = (TextView) findViewById(R.id.tvLat);
-        mTextStat = (TextView) findViewById(R.id.tvStatSum);
+
         mButtonFindWeather = (Button) findViewById(R.id.btnFindWeather);
         mButtonUpdateData = (Button) findViewById(R.id.btnUpdateData);
 
-
-
+        getWeatherTask = new GetWeather();
 
         showIntroOnce();
     }
@@ -182,8 +174,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 double latitude = mLastLocation.getLatitude();
                 String url = String.format("http://api.openweathermap.org/data/2.5/forecast?lat=%f&lon=%f&appid=%s",
                         latitude, longitude, WEATHER_API_KEY);
-                mTextLong.setText("Long = " + longitude);
-                mTextLat.setText("Lati = " + latitude);
                 if (getWeatherTask.getStatus() != AsyncTask.Status.FINISHED) {
                     getWeatherTask.execute(url);
                 }
@@ -443,7 +433,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         @Override
         protected void onPostExecute(Double weather) {
             super.onPostExecute(weather);
-            mTextStat.setText("Weather sum =" + weather);
             mImageWeather.setVisibility(View.VISIBLE);
             mProgressBar.setVisibility(View.GONE);
             mButtonFindWeather.setVisibility(View.VISIBLE);
