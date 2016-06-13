@@ -3,9 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".activity.MainActivity">
     <item
-        android:id="@+id/change_city"
-        android:title="@string/change_city"
-        app:showAsAction="never" />
+        android:id="@+id/update_weather"
+        android:icon="@drawable/ic_sync_white_24dp"
+        app:showAsAction="always"
+        android:title="Update" />
     <item
         android:id="@+id/share_app"
         android:orderInCategory="100"

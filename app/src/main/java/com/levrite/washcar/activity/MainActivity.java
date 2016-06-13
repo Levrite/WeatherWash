@@ -1,15 +1,8 @@
 package com.levrite.washcar.activity;
 
-import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
@@ -18,23 +11,20 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.view.ActionMode;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.ResultCallback;
@@ -44,10 +34,9 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
-import com.google.android.gms.location.LocationSettingsStates;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.levrite.washcar.R;
-import com.levrite.washcar.com.levrite.washcar.storage.InternalStorage;
+import com.levrite.washcar.storage.InternalStorage;
 import com.levrite.washcar.data.WeatherData;
 
 import org.json.JSONArray;
@@ -60,7 +49,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -108,6 +96,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         mButtonFindWeather = (Button) findViewById(R.id.btnFindWeather);
         mButtonUpdateData = (Button) findViewById(R.id.btnUpdateData);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
 
 
@@ -119,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         super.onStart();
 
         getPref = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        boolean haveData = getPref.getBoolean("haveData", true);
+        boolean haveData = getPref.getBoolean("haveData", false);
         if(haveData){
             new AnalyzeWeather().execute();
         } else {
@@ -152,6 +142,30 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.update_weather:
+                if (isNetworkAviable())
+                    {
+                        initGoogleApiClient();
+                        mGoogleApiClient.connect();
+                    }
+                break;
+            case R.id.share_app:
+
+                break;
+        }
+
+        return true;
+    }
 
     public void findWeather(View view) {
         Uri gmmMapIntentUri = Uri.parse("geo:0,0?q=" + R.string.carwash);
@@ -394,7 +408,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 e.printStackTrace();
             }
             SharedPreferences.Editor editor = getPref.edit();
-            editor.putBoolean("haveData", false);
+            editor.putBoolean("haveData",true);
             editor.apply();
             new AnalyzeWeather().execute();
         }
