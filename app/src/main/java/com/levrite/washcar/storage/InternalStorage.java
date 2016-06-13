@@ -1,4 +1,4 @@
-package com.levrite.washcar.com.levrite.washcar.storage;
+package com.levrite.washcar.storage;
 
 import android.content.Context;
 
