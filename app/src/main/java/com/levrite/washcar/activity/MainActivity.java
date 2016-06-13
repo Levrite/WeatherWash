@@ -79,9 +79,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     private ArrayList<WeatherData> mWeatherDatas;
     GetWeather getWeatherTask = new GetWeather();
-
-    int count = 0;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
