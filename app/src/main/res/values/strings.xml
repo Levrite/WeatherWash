@@ -1,33 +1,37 @@
 <resources>
     <string name="app_name">Weather wash</string>
-    <string-array name="city">
-        <item>Москва</item>
-        <item>Санкт-Петербург</item>
-        <item>Нижний Новгород</item>
-    </string-array>
 
-    <string name="find_carwash">Найти мойку</string>
-    <string name="more_weather">Подробнее о погоде</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="find_carwash">Find wash</string>
+    <string name="more_weather">Update data</string>
+    <string name="update_data">Update data</string>
 
-    <string name="good_weather">В ближайшие дни будет прекрасная погода</string>
-    <string name="fine_weather">В ближайшие дни будет облачная погода</string>
-    <string name="bad_weather">В ближайшие дни будет плохая погода</string>
+    <string name="good_weather">In the coming days there will be good weather</string>
+    <string name="fine_weather">In the coming days will be cloudy weather</string>
+    <string name="bad_weather">In the coming days there will be bad weather</string>
+    <string name="rain_today">Today promises to rain, do not advise you to wash your car</string>
+    <string name="rain_tomorrow">Tomorrow is going to rain, we do not advise you to wash your car</string>
 
-    <string name="error_connect">Ошибка получения данных с сервера. Проверьте своё интернет соединение и попробуйте ещё раз</string>
+    <string name="error_connect">Error retrieving data from the server. Check your Internet connection and try again </string>
+    <string name="connecting">Getting data from server</string>
 
-    <string name="welcome_app">Добро пожаловать</string>
-    <string name="chose_city">Выберите свою страну и город</string>
+    <string name="change_city">Change city</string>
 
-    <string name="next_screen">ПРОДОЛЖИТЬ</string>
+    <string name="accept_change">Accept</string>
+    <string name="cancel_change">Cancel</string>
 
-    <string name="change_city">Сменить город</string>
-    <string name="share_app">Поделиться</string>
-    
-    <string name="select_city">Выберите другой город</string>
-    
-    <string name="accept_change">Принять</string>
-    <string name="cancel_change">Отменить</string>
 
-    <string name="share_text">Привет, я мою свою машину только если мне советует приложение Weather wash. Качай его в Google Play</string>
+    <string name="share_text">Hi, I wash my car unless I advised the application Weather wash. Download it on Google Play</string>
+
+    <string name="intro_title_welcome">Welcome</string>
+    <string name="intro_title_geo">Location</string>
+    <string name="intro_title_app">About us</string>
+    <string name="intro_title_enjoy">We are ready</string>
+
+    <string name="intro_desc_welcome">Welcome to our application \n</string>
+    <string name="intro_desc_geo">We need to know your location, you need to know to analyze the weather for any city \n</string>
+    <string name="intro_desc_app">We do the analysis on the weather a few days ahead and share his advice with you whether to spend time and money on cleaning. A sudden rain tomorrow? \n</string>
+    <string name="intro_desc_enjoy">Everything is ready for use. Enjoy!</string>
+    <string name="share_app">Share</string>
+
+    <string name="carwash">Car wash</string>
 </resources>

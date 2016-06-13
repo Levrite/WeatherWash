@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept_change">Принять</string>
+    <string name="bad_weather">В ближайшие дни будет плохая погода</string>
+    <string name="cancel_change">Отменить</string>
+    <string name="app_name">Weather wash</string>
+    <string name="change_city">Сменить город</string>
+    <string name="connecting">Получение данных от сервера</string>
+    <string name="error_connect">Ошибка получения данных с сервера. Проверьте своё интернет соединение и попробуйте ещё раз</string>
+    <string name="find_carwash">Найти мойку</string>
+    <string name="fine_weather">В ближайшие дни будет облачная погода</string>
+    <string name="good_weather">В ближайшие дни будет прекрасная погода</string>
+    <string name="intro_desc_app">Мы делаем анализ погоды на несколько дней вперёд и делимся своим советом с Вами стоит ли тратить время и деньги на мойку. А вдруг завтра дождь? \n</string>
+    <string name="intro_desc_enjoy">Всё готово к использованию. Наслаждайтесь!\n</string>
+    <string name="intro_desc_geo">Нам необходимо знать ваше местоположение, что бы знать для какого города необходимо анализировать погоду \n</string>
+    <string name="intro_desc_welcome">Приветсвуем Вас в нашем приложении \n</string>
+    <string name="intro_title_app">О нас</string>
+    <string name="intro_title_enjoy">Всё готово</string>
+    <string name="intro_title_geo">Местоположение</string>
+    <string name="intro_title_welcome">Добро пожаловать</string>
+    <string name="more_weather">Обновить данные</string>
+    <string name="rain_today">Сегодня обещают дождь, не советуем Вам мыть машину</string>
+    <string name="rain_tomorrow">Завтра будет дождь, не советуем Вам мыть машину</string>
+    <string name="share_app">Поделиться</string>
+    <string name="share_text">Привет, я мою свою машину только если мне советует приложение Weather wash. Качай его в Google Play</string>
+    <string name="carwash">Автомойка</string>
+    <string name="update_data">Обновить</string>
+</resources>
