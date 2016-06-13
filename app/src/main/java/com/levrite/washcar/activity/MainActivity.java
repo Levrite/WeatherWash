@@ -24,6 +24,9 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -132,7 +135,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     }
 
 
-
     @Override
     protected void onStop() {
         if(mGoogleApiClient != null) {
@@ -143,6 +145,30 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         super.onStop();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.update_weather:
+                if (isNetworkAviable())
+                {
+                    initGoogleApiClient();
+                    mGoogleApiClient.connect();
+                }
+                break;
+            case R.id.share_app:
+
+                break;
+        }
+
+        return true;
+    }
 
 
     public void findWeather(View view) {
